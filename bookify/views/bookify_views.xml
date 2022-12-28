@@ -1,0 +1,95 @@
+<odoo>
+    <record id="bookify_top_picks" model="ir.actions.act_window">
+        <field name="name">Top picks</field>
+        <field name="res_model">book.description</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="bookify_genres" model="ir.actions.act_window">
+        <field name="name">Genres</field>
+        <field name="res_model">book.genres</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="bookify_category" model="ir.actions.act_window">
+        <field name="name">Category</field>
+        <field name="res_model">book.category</field>
+        <field name="view_mode">tree,form</field>
+
+    </record>
+    <!-- ____________________________list view_________________________________ -->
+    <record id ="bookify_description_tree_view" model="ir.ui.view">
+        <field name="name">bookify.description.tree</field>
+        <field name="model">book.description</field>
+        <field name="arch" type="xml">
+            <tree string="tree view">
+                <field name="name"/>
+                <field name="author"/>
+                <field name="genres"/>
+                <field name="price"/>
+                
+                <field name="description" optional="hide"/>
+                <field name="type" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+<!-- ____________________________Form view_________________________________ -->
+<record id="bookify_description_form_view" model="ir.ui.view">
+    <field name="name">bookify.description.form</field>
+    <field name="model">book.description</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <label for="name"/>
+                <h1><field name="name"/></h1>
+                <group>
+                    <group style="margin-top:30px">
+                        <field name="category" widget="many2many_tags"/>
+                    </group>
+                    <group style="margin-top:30px">
+                        <field name="author"/>
+                    </group>
+                    <group style="margin-top:30px">
+                        <field name="genres"/>
+                    </group> 
+                    <group style="margin-top:30px">
+                        <field name="pages"/>
+                    </group>
+                    <group style="margin-top:30px">
+                        <field name="type"/>
+                    </group>
+                    <group style="margin-top:30px">
+                        <field name="price"/>
+                    </group>
+                    <group style="margin-top:30px">
+                        <field name="published_date"/>
+                    </group> 
+                      
+                </group>
+                <notebook>
+                    <page string="description">
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<!-- ____________________________Search View_________________________________ -->
+<record id="book_description_search_view" model="ir.ui.view">
+    <field name="name">boooify.description.search.view</field>
+    <field name="model">book.description</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="author"/>
+            <field name="name"/>
+            
+           <filter name="type" string="NEW" domain="[('type', '=', 'new')]" />
+           <filter name="type" string="Old" domain="[('type', '=', 'old')]"/>
+        </search>
+    </field>
+</record>
+
+
+</odoo>

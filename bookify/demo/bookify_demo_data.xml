@@ -1,0 +1,30 @@
+<odoo>
+    <record model="book.genres" id="bookify_category_demo_data_first">
+        <field name="name">Novel</field>
+     
+    </record>
+    <record model="book.description" id="bookify_demo_data_first">
+        <field name="name">revolution 2020</field>
+        <field name="pages">296</field>
+        <field name="price">150</field>
+        <field name="type">new</field>
+        <field name="author">Chetan bhagat</field>  
+    </record>
+    <record model="book.description" id="bookify_demo_data_second">
+        <field name="name">The Power of your subconscious mind</field>
+        <field name="pages">312</field>
+        <field name="price">250</field>
+        <field name="type">new</field>
+        <field name="author">Joseph Murphy</field>
+    </record>
+    <!-- <record model="book.description" id="bookify_demo_data_third">
+        <field name="name">revolution 2020</field>
+        <field name="pages">296</field>
+        <field name="price">150</field>
+        <field name="type">new</field>
+    </record> -->
+
+
+    
+   
+</odoo>
