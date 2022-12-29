@@ -2,3 +2,7 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 bookify.access_book_description,access_book_description,bookify.model_book_description,base.group_user,1,1,1,1
 bookify.access_book_genres,access_book_genres,bookify.model_book_genres,base.group_user,1,1,1,1
 bookify.access_book_category,access_book_category,bookify.model_book_category,base.group_user,1,1,1,1
+bookify.access_user_description,access_user_description,bookify.model_user_description,base.group_user,1,1,1,1
+bookify.access_user_category,access_user_category,bookify.model_user_category,base.group_user,1,1,1,1
+bookify.access_author_description,access_author_description,bookify.model_author_description,base.group_user,1,1,1,1
+

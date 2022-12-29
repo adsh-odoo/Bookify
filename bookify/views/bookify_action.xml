@@ -7,5 +7,12 @@
             <menuitem id="bookify_second_level_menu_first" action="bookify_genres"/>
             <menuitem id="bookify_second_level_menu_second" action="bookify_category"/>
         </menuitem>
+        <menuitem id="bookify_third_level_menu" name="User">
+            <menuitem id="bookify_third_level_menu_first" action="user_description"/>
+            <menuitem id="bookify_third_level_menu_second" action="user_category"/>
+        </menuitem>
+        <menuitem id="bookify_fourth_level_menu" name="Authors">
+            <menuitem id ="bookify_fourth_level_menu_first" action="author_description"/>
+        </menuitem>
     </menuitem>
 </odoo> 

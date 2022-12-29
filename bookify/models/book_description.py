@@ -6,7 +6,7 @@ class bookDescriptionModel(models.Model):
 
     name= fields.Char(required = True )
     description= fields.Text()
-    author=fields.Char()
+    author_id=fields.Many2one('author.description')
     price=fields.Integer(required = True)
     pages=fields.Integer(required = True)
     published_date=fields.Date('Published date', default = lambda self: fields.datetime.now()-relativedelta(months=6))
@@ -14,5 +14,7 @@ class bookDescriptionModel(models.Model):
         required=True,
         selection=[("new","New"),("old","Old")]
         )
-    genres=fields.Many2one('book.genres', string="Genres")
-    category=fields.Many2many('book.category')
+    publication = fields.Char()
+    editions = fields.Char()
+    genres_id=fields.Many2one('book.genres', string="Genres")
+    category_ids=fields.Many2many('book.category')

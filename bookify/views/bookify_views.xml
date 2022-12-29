@@ -15,6 +15,23 @@
         <field name="view_mode">tree,form</field>
 
     </record>
+    <record id="user_description" model="ir.actions.act_window">
+        <field name="name">All users</field>
+        <field name="res_model">user.description</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="user_category" model="ir.actions.act_window">
+        <field name="name">Types of users</field>
+        <field name="res_model">user.category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="author_description" model="ir.actions.act_window">
+        <field name="name">Author</field>
+        <field name="res_model">author.description</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+   
+   
     <!-- ____________________________list view_________________________________ -->
     <record id ="bookify_description_tree_view" model="ir.ui.view">
         <field name="name">bookify.description.tree</field>
@@ -22,8 +39,8 @@
         <field name="arch" type="xml">
             <tree string="tree view">
                 <field name="name"/>
-                <field name="author"/>
-                <field name="genres"/>
+                <field name="author_id"/>
+                <field name="genres_id"/>
                 <field name="price"/>
                 
                 <field name="description" optional="hide"/>
@@ -31,7 +48,7 @@
             </tree>
         </field>
     </record>
-<!-- ____________________________Form view_________________________________ -->
+<!-- ____________________________Form view Book_description_________________________________ -->
 <record id="bookify_description_form_view" model="ir.ui.view">
     <field name="name">bookify.description.form</field>
     <field name="model">book.description</field>
@@ -42,13 +59,13 @@
                 <h1><field name="name"/></h1>
                 <group>
                     <group style="margin-top:30px">
-                        <field name="category" widget="many2many_tags"/>
+                        <field name="category_ids" widget="many2many_tags"/>
                     </group>
                     <group style="margin-top:30px">
-                        <field name="author"/>
+                        <field name="author_id"/>
                     </group>
                     <group style="margin-top:30px">
-                        <field name="genres"/>
+                        <field name="genres_id"/>
                     </group> 
                     <group style="margin-top:30px">
                         <field name="pages"/>
@@ -62,7 +79,12 @@
                     <group style="margin-top:30px">
                         <field name="published_date"/>
                     </group> 
-                      
+                    <group style="margin-top:30px">
+                        <field name="publication"/>
+                    </group> 
+                    <group style="margin-top:30px">
+                        <field name="editions"/>
+                    </group> 
                 </group>
                 <notebook>
                     <page string="description">
@@ -82,14 +104,111 @@
     <field name="model">book.description</field>
     <field name="arch" type="xml">
         <search>
-            <field name="author"/>
+            <field name="author_id"/>
             <field name="name"/>
             
            <filter name="type" string="NEW" domain="[('type', '=', 'new')]" />
            <filter name="type" string="Old" domain="[('type', '=', 'old')]"/>
+           <group  string="Group By" expand="1">
+            <filter string="Author" name="author_id" context= "{'group_by':'author_id' , 'residual_visible': 'True'}"/>
+           </group>
         </search>
     </field>
 </record>
 
+<!-- ____________________________list view user_description_________________________________ -->
+<record id="user_description_list_view" model="ir.ui.view">
+    <field name="name">treeview.user.description</field>
+    <field name="model">user.description</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name"></field>
+            <field name="email_id"/>
+            <field name="category_id"/>
+            <field name="mobile_no" optional="hide"/>
+        </tree>
+    </field>
+</record>
+
+<!-- ____________________________Form view user_description_________________________________ -->
+<record id="user_description_form_view" model="ir.ui.view">
+    <field name="name">formview.user.description</field>
+    <field name="model">user.description</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <group style="margin-top:30px">
+                        <field name="name"/>
+                    </group >
+                    <group style="margin-top:30px">
+                        <field name="email_id"/>
+                    </group>
+                    <group style="margin-top:30px">
+                        <field name="mobile_no"/>
+                    </group>
+                    <group style="margin-top:30px">
+                        <field name="Residential_address"/>
+                    </group>
+                    <group style="margin-top:30px">
+                        <field name="category_id"/>
+                    </group>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<!-- ____________________________list view author_description_________________________________ -->
+
+<record id="author_description_list_view" model="ir.ui.view">
+    <field name="name">author.decription.listview</field>
+    <field name="model">author.description</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="age"/>
+            <field name="awards"/>
+            <field name="country"/>
+        </tree>    
+    </field>
+</record>
+
+<!-- ____________________________form view author_description_________________________________ -->
+<record id="author_description_form" model ="ir.ui.view">
+    <field name="name">author.description.form.view</field>
+    <field name="model">author.description</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <group style = "margin-top:30px">
+                        <field name="name"/>
+                    </group>
+                    <group style = "margin-top:30px">
+                        <field name="date_of_birth"/>
+                    </group>
+                    <group style = "margin-top:30px">
+                        <field name="age"/>
+                    </group>
+                    <group style = "margin-top:30px">
+                        <field name="country"/>
+                    </group>
+                    <group style = "margin-top:30px">
+                        <field name="genres_ids" widget= "many2many_tags"/>
+                    </group>
+                    <group style = "margin-top:30px">
+                        <field name="awards"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string = "description">
+                        <field name="author_descriptions"/>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
 
 </odoo>

@@ -1,22 +1,56 @@
 <odoo>
-    <record model="book.genres" id="bookify_category_demo_data_first">
+    <record model="book.genres" id="bookify_genres_demo_data_first">
         <field name="name">Novel</field>
      
     </record>
+    <record model="book.category" id ="bookify_category_demo_data_first">
+        <field name="name">Bestseller</field>
+    </record>
+    <record model="book.category" id ="bookify_category_demo_data_second">
+        <field name="name">Politics</field>
+    </record>
+    <record model="book.category" id ="bookify_category_demo_data_third">
+        <field name="name">Science and fiction</field>
+    </record>
+   <record model="user.category" id="user_category_demo_data_first">
+    <field name="name">Customer</field>
+   </record>
+   <record model="user.category" id="user_category_demo_data_second">
+    <field name="name">Suppliers</field>
+   </record>
+    <record model="user.description" id="user_description_demo_data_first">
+        <field name="name">demo user1</field>
+        <field name="email_id">demo@demo1.com</field>
+        <!-- <field name="mobile_no">8734562345</field> -->
+    </record>
+    <record model="user.description" id="user_description_demo_data_second">
+        <field name="name">demo user2</field>
+        <field name="email_id">demo@demo2.com</field>
+        <!-- <field name="mobile_no">7934567813</field> -->
+    </record>
+
     <record model="book.description" id="bookify_demo_data_first">
         <field name="name">revolution 2020</field>
         <field name="pages">296</field>
         <field name="price">150</field>
         <field name="type">new</field>
-        <field name="author">Chetan bhagat</field>  
+        <!-- <field name="author">Chetan bhagat</field>   -->
+
     </record>
     <record model="book.description" id="bookify_demo_data_second">
         <field name="name">The Power of your subconscious mind</field>
         <field name="pages">312</field>
         <field name="price">250</field>
         <field name="type">new</field>
-        <field name="author">Joseph Murphy</field>
+        <!-- <field name="author">Joseph Murphy</field> -->
     </record>
+
+    <record model="author.description" id="author_description_dem_data_first">
+        <field name="name">Arundhati Roy</field>
+        <field name="age">61</field>
+        <field name="awards">Sydney peace Prize</field>
+    </record>
+    
     <!-- <record model="book.description" id="bookify_demo_data_third">
         <field name="name">revolution 2020</field>
         <field name="pages">296</field>
