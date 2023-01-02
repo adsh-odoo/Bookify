@@ -18,3 +18,5 @@ class bookDescriptionModel(models.Model):
     editions = fields.Char()
     genres_id=fields.Many2one('book.genres', string="Genres")
     category_ids=fields.Many2many('book.category')
+    product_id = fields.Many2one('sold.products', string ="sold products")
+    

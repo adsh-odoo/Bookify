@@ -9,3 +9,4 @@ class userdescription(models.Model):
     mobile_no= fields.Integer("MobileNo")
     Residential_address= fields.Text("Address")
     category_id = fields.Many2one('user.category', string="User Type")
+    user_id = fields.Many2one('sold.products', string ="User-info")

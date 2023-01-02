@@ -30,6 +30,11 @@
         <field name="res_model">author.description</field>
         <field name="view_mode">tree,form</field>
     </record>
+    <record id="sold_products" model="ir.actions.act_window">
+        <field name="name">Sold Products</field>
+        <field name="res_model">sold.products</field>
+        <field name="view_mode">tree,form</field>
+    </record>
    
    
     <!-- ____________________________list view_________________________________ -->
@@ -41,8 +46,7 @@
                 <field name="name"/>
                 <field name="author_id"/>
                 <field name="genres_id"/>
-                <field name="price"/>
-                
+                <field name="price"/>    
                 <field name="description" optional="hide"/>
                 <field name="type" optional="hide"/>
             </tree>
@@ -128,6 +132,41 @@
             <field name="mobile_no" optional="hide"/>
         </tree>
     </field>
+</record>
+<!-- ____________________________form view sold_products_________________________________ -->
+<record id="sold_roducts_form_view" model="ir.ui.view">
+    <field name="name">formview.sold.products</field>
+    <field name="model">sold.products</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <group>
+                        <field name="salesperson_id"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Book description">
+                        <field name="sold_ids"></field>
+                    </page>
+                    <page string="Buyers descriptions">
+                        <field name="user_ids"></field>
+                    </page>
+                </notebook>
+            </sheet>    
+        </form>    
+    </field>          
+</record>
+<!-- ____________________________tree view sold_products_________________________________ -->
+<record id="sold_roducts_list_view" model="ir.ui.view">
+    <field name="name">treeview.sold.products</field>
+    <field name="model">sold.products</field>
+    <field name="arch" type="xml">
+        <tree>
+                <field name="sold_ids"></field>
+                <field name="user_ids"></field>  
+        </tree>    
+    </field>          
 </record>
 
 <!-- ____________________________Form view user_description_________________________________ -->
