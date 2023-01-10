@@ -3,6 +3,14 @@
         <field name="name">Top picks</field>
         <field name="res_model">book.description</field>
         <field name="view_mode">tree,form</field>
+        <!-- <field name="domain">[('author_id', '=', active_id)]</field> -->
+
+    </record>
+    <record id="bookify_top_picks_author_view" model="ir.actions.act_window">
+        <field name="name">Top picks</field>
+        <field name="res_model">book.description</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('author_id', '=', active_id)]</field>
     </record>
     <record id="bookify_genres" model="ir.actions.act_window">
         <field name="name">Genres</field>
@@ -44,9 +52,10 @@
         <field name="arch" type="xml">
             <tree string="tree view">
                 <field name="name"/>
+                <field name ="category_ids" widget="many2many_tags" options = "{'color_field':'color'}"/>  
                 <field name="author_id"/>
                 <field name="genres_id"/>
-                <field name="price"/>    
+                <field name="price"/> 
                 <field name="description" optional="hide"/>
                 <field name="type" optional="hide"/>
             </tree>
@@ -63,13 +72,13 @@
                 <h1><field name="name"/></h1>
                 <group>
                     <group style="margin-top:30px">
-                        <field name="category_ids" widget="many2many_tags"/>
+                        <field name="category_ids" widget="many2many_tags"  options = "{'color_field' : 'color' 'no_quick_create': True, 'no_create_edit' : True}"  />
                     </group>
                     <group style="margin-top:30px">
-                        <field name="author_id"/>
+                        <field name="author_id" widget ="selection"/>
                     </group>
                     <group style="margin-top:30px">
-                        <field name="genres_id"/>
+                        <field name="genres_id" widget="selection"/>
                     </group> 
                     <group style="margin-top:30px">
                         <field name="pages"/>
@@ -78,7 +87,16 @@
                         <field name="type"/>
                     </group>
                     <group style="margin-top:30px">
+                        <field name="rating"/>
+                    </group>
+                    <group style="margin-top:30px">
                         <field name="price"/>
+                    </group>
+                    <group style="margin-top:30px">
+                        <field name="selling_price"/>
+                    </group>
+                    <group style="margin-top:30px">
+                        <field name="tax"/>
                     </group>
                     <group style="margin-top:30px">
                         <field name="published_date"/>
@@ -209,6 +227,7 @@
             <field name="age"/>
             <field name="awards"/>
             <field name="country"/>
+            <field name="total_books_ids" />
         </tree>    
     </field>
 </record>
@@ -220,6 +239,15 @@
     <field name="arch" type="xml">
         <form>
             <sheet>
+                <div class="oe_button_box" name="button_box">
+                    <button string="Books available"
+                        name="%(bookify_top_picks_author_view)d"
+                        type="action"
+                        class="oe_stat_button"
+                        icon="fa-money" >
+                        
+                    </button>       
+                </div>
                 <group>
                     <group style = "margin-top:30px">
                         <field name="name"/>
@@ -238,6 +266,9 @@
                     </group>
                     <group style = "margin-top:30px">
                         <field name="awards"/>
+                    </group>
+                    <group style = "margin-top:30px">
+                        <field name="rating"/>
                     </group>
                 </group>
                 <notebook>
