@@ -1,11 +1,14 @@
 <odoo>
     <record id="bookify_top_picks" model="ir.actions.act_window">
-        <field name="name">Top picks</field>
+        <field name="name">Available books</field>
         <field name="res_model">book.description</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{"search_default_top_rated":1}</field>
         <!-- <field name="domain">[('author_id', '=', active_id)]</field> -->
 
     </record>
+
+    <!-- making the record for the estate button -->
     <record id="bookify_top_picks_author_view" model="ir.actions.act_window">
         <field name="name">Top picks</field>
         <field name="res_model">book.description</field>
@@ -27,6 +30,13 @@
         <field name="name">All users</field>
         <field name="res_model">user.description</field>
         <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- making the record for the purchase button  -->
+    <record id="user_description_purchase_form" model="ir.actions.act_window">
+        <field name="name">All users</field>
+        <field name="res_model">user.description</field>
+        <field name="view_mode">form,tree</field>
     </record>
     <record id="user_category" model="ir.actions.act_window">
         <field name="name">Types of users</field>
@@ -68,6 +78,10 @@
     <field name="arch" type="xml">
         <form>
             <sheet>
+                <header style="margin-bottom:30px">
+                    <button name="%(user_description_purchase_form)d" type = "action" string ="Purchase" class="oe_highlight"/>
+                    <field name="state" widget ="statusbar" options = "{'clickable': 1}"/>
+                </header>
                 <label for="name"/>
                 <h1><field name="name"/></h1>
                 <group>
@@ -75,7 +89,7 @@
                         <field name="category_ids" widget="many2many_tags"  options = "{'color_field' : 'color' 'no_quick_create': True, 'no_create_edit' : True}"  />
                     </group>
                     <group style="margin-top:30px">
-                        <field name="author_id" widget ="selection"/>
+                        <field name="author_id" options ="{'no_quick_create':True 'no_create_edit' : True}" widget ="selection"/>
                     </group>
                     <group style="margin-top:30px">
                         <field name="genres_id" widget="selection"/>
@@ -128,9 +142,10 @@
         <search>
             <field name="author_id"/>
             <field name="name"/>
-            
+            <field name="rating" string="by rating greater than" filter_domain= "[('rating', '>=' , self)]"/>
            <filter name="type" string="NEW" domain="[('type', '=', 'new')]" />
            <filter name="type" string="Old" domain="[('type', '=', 'old')]"/>
+           <filter name="top_rated" string ="Top rated" domain ="[('rating' , '>=' ,'7')]"/>
            <group  string="Group By" expand="1">
             <filter string="Author" name="author_id" context= "{'group_by':'author_id' , 'residual_visible': 'True'}"/>
            </group>
@@ -205,7 +220,7 @@
                         <field name="mobile_no"/>
                     </group>
                     <group style="margin-top:30px">
-                        <field name="Residential_address"/>
+                        <field name="Residential_address" attrs = "{'invisible': [('category_id', '=', 1)]}"/>
                     </group>
                     <group style="margin-top:30px">
                         <field name="category_id"/>
@@ -245,7 +260,7 @@
                         type="action"
                         class="oe_stat_button"
                         icon="fa-money" >
-                        
+                        <field name="book_count" widget="statinfo" string="Books"/>
                     </button>       
                 </div>
                 <group>
