@@ -53,6 +53,7 @@
         <field name="res_model">sold.products</field>
         <field name="view_mode">tree,form</field>
     </record>
+    
    
    
     <!-- ____________________________list view_________________________________ -->
@@ -214,13 +215,16 @@
                         <field name="name"/>
                     </group >
                     <group style="margin-top:30px">
+                        <field name="id_user"/>
+                    </group >
+                    <group style="margin-top:30px">
                         <field name="email_id"/>
                     </group>
                     <group style="margin-top:30px">
                         <field name="mobile_no"/>
                     </group>
                     <group style="margin-top:30px">
-                        <field name="Residential_address" attrs = "{'invisible': [('category_id', '=', 1)]}"/>
+                        <field name="Residential_address" attrs = "{'invisible': [('category_id', '=', 'Supplier')]}"/>
                     </group>
                     <group style="margin-top:30px">
                         <field name="category_id"/>

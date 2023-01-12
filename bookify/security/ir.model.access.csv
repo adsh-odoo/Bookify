@@ -6,4 +6,4 @@ bookify.access_user_description,access_user_description,bookify.model_user_descr
 bookify.access_user_category,access_user_category,bookify.model_user_category,base.group_user,1,1,1,1
 bookify.access_author_description,access_author_description,bookify.model_author_description,base.group_user,1,1,1,1
 bookify.access_sold_products,access_sold_products,bookify.model_sold_products,base.group_user,1,1,1,1
-
+bookify.access_bookify_stocks,access_bookify_stocks,bookify.model_bookify_stocks,base.group_user,1,1,1,1

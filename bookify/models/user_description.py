@@ -7,14 +7,22 @@ class userdescription(models.Model):
     _description="description of the user"
 
     name = fields.Char(required=True)
+    id_user = fields.Char("user-id")
     email_id = fields.Char("Email-id")
-    mobile_no= fields.Char("MobileNo")
+    mobile_no= fields.Char("MobileNo", required= True)
     Residential_address= fields.Text("Address")
     category_id = fields.Many2one('user.category', string="User Type")
     user_id = fields.Many2one('sold.products', string ="User-info")
+    
+    stocks_id = fields.Many2one('bookify.stocks')
+    
 
 
-
+    # SQL constarints
+    _sql_constraints = [
+        ('Checking_id_user_uniqness', 'unique(id_user)',
+        'User id already exists try with some another id')
+    ]
     # python constrains
 
     @api.constrains("mobile_no")

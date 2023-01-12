@@ -5,3 +5,4 @@ class userCategory(models.Model):
     _description="category of the user"
 
     name = fields.Char(required=True)
+

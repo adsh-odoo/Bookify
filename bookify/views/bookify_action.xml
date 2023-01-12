@@ -3,6 +3,8 @@
         <menuitem id="bookify_first_level_menu" name="Shop">
             <menuitem id="bookify_first_level_menu_first" action="bookify_top_picks" />
             <menuitem id="bookify_first_level_menu_second" action="sold_products" />
+            <menuitem id="bookify_first_level_menu_third" action="bookify_stocks" />
+
         </menuitem>
         <menuitem id="bookify_second_level_menu" name="Properties">
             <menuitem id="bookify_second_level_menu_first" action="bookify_genres"/>

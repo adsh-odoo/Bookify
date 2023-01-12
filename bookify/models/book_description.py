@@ -17,14 +17,14 @@ class bookDescriptionModel(models.Model):
         required=True,
         selection=[("new","New"),("old","Old")]
         )
-    rating = fields.Integer()
+    rating = fields.Integer(required = True,default =1 , store = True)
     publication = fields.Char()
     editions = fields.Char()
     genres_id=fields.Many2one('book.genres', string="Genres")
     category_ids=fields.Many2many('book.category')
     product_id = fields.Many2one('sold.products', string ="sold products")
     state = fields.Selection(string = "Availability",
-        selection = [('new','New'),('sold','Sold')]
+        selection = [('new','New'),('queued','Queued'),('sold','Sold')]
     )
 
 
