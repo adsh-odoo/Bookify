@@ -7,8 +7,10 @@
 
     "data":[
         "security/ir.model.access.csv", 
-         "views/bookify_views.xml",
-         "views/bookify_stocks.xml",
+        "views/bookify_views.xml",
+        "views/bookify_stocks.xml",
+        "views/sequence_bills.xml",
+        "views/bookify_bills.xml",
         "views/bookify_action.xml",  
     ],
     "demo":[

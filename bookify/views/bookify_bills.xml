@@ -1,0 +1,69 @@
+<odoo>
+    <record id ="bookify_bills" model ="ir.actions.act_window">
+        <field name ="name">Bills</field>
+        <field name ="res_model">book.bill</field>
+        <field name ="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- _________________________tree_view______________________________ -->
+    <record id ="bookify_bill" model ="ir.ui.view">
+        <field name="name">bookify.bills.tree.view</field>
+        <field name="model">book.bill</field>
+        <field name="arch" type = "xml">
+            <tree>
+                <field name ="user_name_id"/>
+                <field name ="book_name_id"/>
+                <field name="user_id"/>
+                <field name="total_price"/>
+                <field name="date"/>
+            </tree>
+
+        </field>
+    </record>
+    <record id ="bookify_bills_form_view" model = "ir.ui.view">
+        <field name="name">book.bills.form.view</field>
+        <field name="model">book.bill</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <label for ="ref"/>
+                    <h1>
+                        <field name = "ref"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="user_name_id"/>
+                        </group>
+                        <group>
+                            <field name="book_name_id"/>
+                        </group>
+                        <!-- <group>
+                            <field name="book_name_id"/>
+                        </group> -->
+                        <group>
+                            <field name="quantity"/>
+                        </group>
+                        <group>
+                            <field name="user_id"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="printed_price"/>
+                        </group>
+                        <group>
+                            <field name="total_tax"/>
+                        </group>
+                        <group>
+                            <field name="total_price"/>
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,9 @@
+<odoo>
+    <record id ="sequence_bill" model ="ir.sequence">
+        <field name="name">bills sequence</field>
+        <field name="code">bookify.bills</field>
+        <field name ="prefix">Bill</field>
+        <field name="padding">8</field>
+        <field name="company_id" eval="False"></field>
+    </record>
+</odoo>

@@ -53,251 +53,259 @@
         <field name="res_model">sold.products</field>
         <field name="view_mode">tree,form</field>
     </record>
-    
-   
-   
+
+
     <!-- ____________________________list view_________________________________ -->
-    <record id ="bookify_description_tree_view" model="ir.ui.view">
+    <record id="bookify_description_tree_view" model="ir.ui.view">
         <field name="name">bookify.description.tree</field>
         <field name="model">book.description</field>
         <field name="arch" type="xml">
             <tree string="tree view">
-                <field name="name"/>
-                <field name ="category_ids" widget="many2many_tags" options = "{'color_field':'color'}"/>  
-                <field name="author_id"/>
-                <field name="genres_id"/>
-                <field name="price"/> 
-                <field name="description" optional="hide"/>
-                <field name="type" optional="hide"/>
+                <field name="name" />
+                <field name="category_ids" widget="many2many_tags" options="{'color_field':'color'}" />
+                <field name="author_id" />
+                <field name="genres_id" />
+                <field name="price" />
+                <field name="description" optional="hide" />
+                <field name="type" optional="hide" />
             </tree>
         </field>
     </record>
-<!-- ____________________________Form view Book_description_________________________________ -->
-<record id="bookify_description_form_view" model="ir.ui.view">
-    <field name="name">bookify.description.form</field>
-    <field name="model">book.description</field>
-    <field name="arch" type="xml">
-        <form>
-            <sheet>
-                <header style="margin-bottom:30px">
-                    <button name="%(user_description_purchase_form)d" type = "action" string ="Purchase" class="oe_highlight"/>
-                    <field name="state" widget ="statusbar" options = "{'clickable': 1}"/>
-                </header>
-                <label for="name"/>
-                <h1><field name="name"/></h1>
-                <group>
-                    <group style="margin-top:30px">
-                        <field name="category_ids" widget="many2many_tags"  options = "{'color_field' : 'color' 'no_quick_create': True, 'no_create_edit' : True}"  />
-                    </group>
-                    <group style="margin-top:30px">
-                        <field name="author_id" options ="{'no_quick_create':True 'no_create_edit' : True}" widget ="selection"/>
-                    </group>
-                    <group style="margin-top:30px">
-                        <field name="genres_id" widget="selection"/>
-                    </group> 
-                    <group style="margin-top:30px">
-                        <field name="pages"/>
-                    </group>
-                    <group style="margin-top:30px">
-                        <field name="type"/>
-                    </group>
-                    <group style="margin-top:30px">
-                        <field name="rating"/>
-                    </group>
-                    <group style="margin-top:30px">
-                        <field name="price"/>
-                    </group>
-                    <group style="margin-top:30px">
-                        <field name="selling_price"/>
-                    </group>
-                    <group style="margin-top:30px">
-                        <field name="tax"/>
-                    </group>
-                    <group style="margin-top:30px">
-                        <field name="published_date"/>
-                    </group> 
-                    <group style="margin-top:30px">
-                        <field name="publication"/>
-                    </group> 
-                    <group style="margin-top:30px">
-                        <field name="editions"/>
-                    </group> 
-                </group>
-                <notebook>
-                    <page string="description">
-                        <group>
-                            <field name="description"/>
-                        </group>
-                    </page>
-                </notebook>
-            </sheet>
-        </form>
-    </field>
-</record>
-
-<!-- ____________________________Search View_________________________________ -->
-<record id="book_description_search_view" model="ir.ui.view">
-    <field name="name">boooify.description.search.view</field>
-    <field name="model">book.description</field>
-    <field name="arch" type="xml">
-        <search>
-            <field name="author_id"/>
-            <field name="name"/>
-            <field name="rating" string="by rating greater than" filter_domain= "[('rating', '>=' , self)]"/>
-           <filter name="type" string="NEW" domain="[('type', '=', 'new')]" />
-           <filter name="type" string="Old" domain="[('type', '=', 'old')]"/>
-           <filter name="top_rated" string ="Top rated" domain ="[('rating' , '>=' ,'7')]"/>
-           <group  string="Group By" expand="1">
-            <filter string="Author" name="author_id" context= "{'group_by':'author_id' , 'residual_visible': 'True'}"/>
-           </group>
-        </search>
-    </field>
-</record>
-
-<!-- ____________________________list view user_description_________________________________ -->
-<record id="user_description_list_view" model="ir.ui.view">
-    <field name="name">treeview.user.description</field>
-    <field name="model">user.description</field>
-    <field name="arch" type="xml">
-        <tree>
-            <field name="name"></field>
-            <field name="email_id"/>
-            <field name="category_id"/>
-            <field name="mobile_no" optional="hide"/>
-        </tree>
-    </field>
-</record>
-<!-- ____________________________form view sold_products_________________________________ -->
-<record id="sold_roducts_form_view" model="ir.ui.view">
-    <field name="name">formview.sold.products</field>
-    <field name="model">sold.products</field>
-    <field name="arch" type="xml">
-        <form>
-            <sheet>
-                <group>
+    <!-- ____________________________Form view Book_description_________________________________ -->
+    <record id="bookify_description_form_view" model="ir.ui.view">
+        <field name="name">bookify.description.form</field>
+        <field name="model">book.description</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <header style="margin-bottom:30px">
+                        <button name="%(user_description_purchase_form)d" type="action"
+                            string="Purchase" class="oe_highlight" />
+                        <field name="state" widget="statusbar" options="{'clickable': 1}" />
+                    </header>
+                    <label for="name" />
+                    <h1>
+                        <field name="name" />
+                    </h1>
                     <group>
-                        <field name="salesperson_id"/>
+                        <group style="margin-top:30px">
+                            <field name="category_ids" widget="many2many_tags"
+                                options="{'color_field' : 'color' 'no_quick_create': True, 'no_create_edit' : True}" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="author_id"
+                                options="{'no_quick_create':True 'no_create_edit' : True}"
+                                widget="selection" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="genres_id" widget="selection" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="pages" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="type" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="rating" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="price" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="selling_price" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="tax" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="published_date" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="publication" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="editions" />
+                        </group>
                     </group>
+                    <notebook>
+                        <page string="description">
+                            <group>
+                                <field name="description" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ____________________________Search View_________________________________ -->
+    <record id="book_description_search_view" model="ir.ui.view">
+        <field name="name">boooify.description.search.view</field>
+        <field name="model">book.description</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="author_id" />
+                <field name="name" />
+                <field name="rating" string="by rating greater than"
+                    filter_domain="[('rating', '>=' , self)]" />
+                <filter name="type" string="NEW" domain="[('type', '=', 'new')]" />
+                <filter name="type" string="Old" domain="[('type', '=', 'old')]" />
+                <filter name="top_rated" string="Top rated" domain="[('rating' , '>=' ,'7')]" />
+                <group string="Group By" expand="1">
+                    <filter string="Author" name="author_id"
+                        context="{'group_by':'author_id' , 'residual_visible': 'True'}" />
                 </group>
-                <notebook>
-                    <page string="Book description">
-                        <field name="sold_ids"></field>
-                    </page>
-                    <page string="Buyers descriptions">
-                        <field name="user_ids"></field>
-                    </page>
-                </notebook>
-            </sheet>    
-        </form>    
-    </field>          
-</record>
-<!-- ____________________________tree view sold_products_________________________________ -->
-<record id="sold_roducts_list_view" model="ir.ui.view">
-    <field name="name">treeview.sold.products</field>
-    <field name="model">sold.products</field>
-    <field name="arch" type="xml">
-        <tree>
+            </search>
+        </field>
+    </record>
+
+    <!-- ____________________________list view user_description_________________________________ -->
+    <record id="user_description_list_view" model="ir.ui.view">
+        <field name="name">treeview.user.description</field>
+        <field name="model">user.description</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"></field>
+                <field name="email_id" />
+                <field name="category_id" />
+                <field name="mobile_no" optional="hide" />
+            </tree>
+        </field>
+    </record>
+    <!-- ____________________________form view sold_products_________________________________ -->
+    <record id="sold_roducts_form_view" model="ir.ui.view">
+        <field name="name">formview.sold.products</field>
+        <field name="model">sold.products</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="salesperson_id" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Book description">
+                            <field name="sold_ids"></field>
+                        </page>
+                        <page string="Buyers descriptions">
+                            <field name="user_ids"></field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ____________________________tree view sold_products_________________________________ -->
+    <record id="sold_roducts_list_view" model="ir.ui.view">
+        <field name="name">treeview.sold.products</field>
+        <field name="model">sold.products</field>
+        <field name="arch" type="xml">
+            <tree>
                 <field name="sold_ids"></field>
-                <field name="user_ids"></field>  
-        </tree>    
-    </field>          
-</record>
+                <field name="user_ids"></field>
+            </tree>
+        </field>
+    </record>
 
-<!-- ____________________________Form view user_description_________________________________ -->
-<record id="user_description_form_view" model="ir.ui.view">
-    <field name="name">formview.user.description</field>
-    <field name="model">user.description</field>
-    <field name="arch" type="xml">
-        <form>
-            <sheet>
-                <group>
-                    <group style="margin-top:30px">
-                        <field name="name"/>
-                    </group >
-                    <group style="margin-top:30px">
-                        <field name="id_user"/>
-                    </group >
-                    <group style="margin-top:30px">
-                        <field name="email_id"/>
+    <!-- ____________________________Form view user_description_________________________________ -->
+    <record id="user_description_form_view" model="ir.ui.view">
+        <field name="name">formview.user.description</field>
+        <field name="model">user.description</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group style="margin-top:30px">
+                            <field name="name" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="id_user" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="email_id" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="mobile_no" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="Residential_address"
+                                attrs="{'invisible': [('category_id', '=', 'Supplier')]}" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="category_id" />
+                        </group>
                     </group>
-                    <group style="margin-top:30px">
-                        <field name="mobile_no"/>
-                    </group>
-                    <group style="margin-top:30px">
-                        <field name="Residential_address" attrs = "{'invisible': [('category_id', '=', 'Supplier')]}"/>
-                    </group>
-                    <group style="margin-top:30px">
-                        <field name="category_id"/>
-                    </group>
-                </group>
-            </sheet>
-        </form>
-    </field>
-</record>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-<!-- ____________________________list view author_description_________________________________ -->
+    <!-- ____________________________list view author_description_________________________________ -->
 
-<record id="author_description_list_view" model="ir.ui.view">
-    <field name="name">author.decription.listview</field>
-    <field name="model">author.description</field>
-    <field name="arch" type="xml">
-        <tree>
-            <field name="name"/>
-            <field name="age"/>
-            <field name="awards"/>
-            <field name="country"/>
-            <field name="total_books_ids" />
-        </tree>    
-    </field>
-</record>
+    <record id="author_description_list_view" model="ir.ui.view">
+        <field name="name">author.decription.listview</field>
+        <field name="model">author.description</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="age" />
+                <field name="awards" />
+                <field name="country" />
+                <field name="total_books_ids" />
+            </tree>
+        </field>
+    </record>
 
-<!-- ____________________________form view author_description_________________________________ -->
-<record id="author_description_form" model ="ir.ui.view">
-    <field name="name">author.description.form.view</field>
-    <field name="model">author.description</field>
-    <field name="arch" type="xml">
-        <form>
-            <sheet>
-                <div class="oe_button_box" name="button_box">
-                    <button string="Books available"
-                        name="%(bookify_top_picks_author_view)d"
-                        type="action"
-                        class="oe_stat_button"
-                        icon="fa-money" >
-                        <field name="book_count" widget="statinfo" string="Books"/>
-                    </button>       
-                </div>
-                <group>
-                    <group style = "margin-top:30px">
-                        <field name="name"/>
+    <!-- ____________________________form view author_description_________________________________ -->
+    <record id="author_description_form" model="ir.ui.view">
+        <field name="name">author.description.form.view</field>
+        <field name="model">author.description</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button string="Books available"
+                            name="%(bookify_top_picks_author_view)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-money">
+                            <field name="book_count" widget="statinfo" string="Books" />
+                        </button>
+                    </div>
+                    <group>
+                        <group style="margin-top:30px">
+                            <field name="name" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="date_of_birth" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="age" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="country" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="genres_ids" widget="many2many_tags" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="awards" />
+                        </group>
+                        <group style="margin-top:30px">
+                            <field name="rating" />
+                        </group>
                     </group>
-                    <group style = "margin-top:30px">
-                        <field name="date_of_birth"/>
-                    </group>
-                    <group style = "margin-top:30px">
-                        <field name="age"/>
-                    </group>
-                    <group style = "margin-top:30px">
-                        <field name="country"/>
-                    </group>
-                    <group style = "margin-top:30px">
-                        <field name="genres_ids" widget= "many2many_tags"/>
-                    </group>
-                    <group style = "margin-top:30px">
-                        <field name="awards"/>
-                    </group>
-                    <group style = "margin-top:30px">
-                        <field name="rating"/>
-                    </group>
-                </group>
-                <notebook>
-                    <page string = "description">
-                        <field name="author_descriptions"/>
-                    </page>
-                </notebook>
-            </sheet>
-        </form>
-    </field>
-</record>
+                    <notebook>
+                        <page string="description">
+                            <field name="author_descriptions" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
 </odoo>
