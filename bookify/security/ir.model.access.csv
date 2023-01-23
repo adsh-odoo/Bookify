@@ -8,3 +8,4 @@ bookify.access_author_description,access_author_description,bookify.model_author
 bookify.access_sold_products,access_sold_products,bookify.model_sold_products,base.group_user,1,1,1,1
 bookify.access_bookify_stocks,access_bookify_stocks,bookify.model_bookify_stocks,base.group_user,1,1,1,1
 bookify.access_book_bill,access_book_bill,bookify.model_book_bill,base.group_user,1,1,1,1
+bookify.access_customer_description,access_customer_description,bookify.model_customer_description,base.group_user,1,1,1,1

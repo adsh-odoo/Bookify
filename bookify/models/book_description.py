@@ -5,7 +5,8 @@ class bookDescriptionModel(models.Model):
     _description="description of the book"
     _order = "rating desc"
 
-    name= fields.Char(required = True )
+    name= fields.Char(required = True)
+    # image = fields.Binary('Image')
     description= fields.Text()
     author_id=fields.Many2one('author.description')
     price=fields.Integer(required = True , string ="printed price")
@@ -26,6 +27,7 @@ class bookDescriptionModel(models.Model):
     state = fields.Selection(string = "Availability",
         selection = [('new','New'),('queued','Queued'),('sold','Sold')]
     )
+    # stock_id = fields.Many2one('bookify.stocks')
 
 
     @api.depends("price")

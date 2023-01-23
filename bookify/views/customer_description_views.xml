@@ -1,0 +1,36 @@
+<odoo>
+    <record id = "customer_description_form_view" model = "ir.ui.view">
+        <field name = "name">customer.description.form.view</field>
+        <field name = "model">customer.description</field>
+        <field name= "arch" type = "xml">
+            <form>
+                <!-- <field name = "user_desc"/> -->
+               <sheet>
+               
+                <group>
+                    <group>
+                        <field name = "name"/>
+                    </group>
+                    <group>
+                        <field name = "id_user"/>
+                    </group>
+                    <group>
+                        <field name = "email_id"/>
+                    </group>
+                    <group>
+                        <field name = "mobile_no"/>
+                    </group>
+                    <group>
+                        <field name = "Residential_address"/>
+                    </group>
+                    <group>
+                        <field name = "book_name_id"/>
+                    </group>
+                </group>
+                    <button name = "sold_order" type = "object" string = "Confirm" class = "oe_highlight"/>
+               </sheet>
+               
+            </form>
+        </field>
+    </record>
+</odoo>

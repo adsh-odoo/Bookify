@@ -32,12 +32,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- making the record for the purchase button  -->
-    <record id="user_description_purchase_form" model="ir.actions.act_window">
-        <field name="name">All users</field>
-        <field name="res_model">user.description</field>
-        <field name="view_mode">form,tree</field>
-    </record>
+  
     <record id="user_category" model="ir.actions.act_window">
         <field name="name">Types of users</field>
         <field name="res_model">user.category</field>
@@ -53,6 +48,17 @@
         <field name="res_model">sold.products</field>
         <field name="view_mode">tree,form</field>
     </record>
+    <record id="customer_description" model="ir.actions.act_window">
+        <field name="name">Customers</field>
+        <field name="res_model">customer.description</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- making the record for the purchase button in the books form view  -->
+    <record id="customer_description_purchase" model="ir.actions.act_window">
+        <field name="name">Customers</field>
+        <field name="res_model">customer.description</field>
+        <field name="view_mode">form,tree</field>
+    </record>
 
 
     <!-- ____________________________list view_________________________________ -->
@@ -67,7 +73,7 @@
                 <field name="genres_id" />
                 <field name="price" />
                 <field name="description" optional="hide" />
-                <field name="type" optional="hide" />
+                <field name="type" optional="hide"/>
             </tree>
         </field>
     </record>
@@ -79,7 +85,7 @@
             <form>
                 <sheet>
                     <header style="margin-bottom:30px">
-                        <button name="%(user_description_purchase_form)d" type="action"
+                        <button name="%(customer_description_purchase)d" type="action"
                             string="Purchase" class="oe_highlight" />
                         <field name="state" widget="statusbar" options="{'clickable': 1}" />
                     </header>
@@ -95,11 +101,14 @@
                         <group style="margin-top:30px">
                             <field name="author_id"
                                 options="{'no_quick_create':True 'no_create_edit' : True}"
-                                widget="selection" />
+                            />
                         </group>
                         <group style="margin-top:30px">
                             <field name="genres_id" widget="selection" />
                         </group>
+                        <!-- <group style="margin-top:30px">
+                            <field name="image" />
+                        </group> -->
                         <group style="margin-top:30px">
                             <field name="pages" />
                         </group>

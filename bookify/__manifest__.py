@@ -11,7 +11,8 @@
         "views/bookify_stocks.xml",
         "views/sequence_bills.xml",
         "views/bookify_bills.xml",
-        "views/bookify_action.xml",  
+        "views/customer_description_views.xml" , 
+        "views/bookify_action.xml",
     ],
     "demo":[
         "demo/bookify_demo_data.xml",

@@ -1,5 +1,5 @@
 <odoo>
-    <menuitem id="bookify_menu_root" name="Bookify">
+    <menuitem id="bookify_menu_root" name="Bookify" web_icon = "bookify,static/description/bookify.jpg">
         <menuitem id="bookify_first_level_menu" name="Shop">
             <menuitem id="bookify_first_level_menu_first" action="bookify_top_picks" />
             <menuitem id="bookify_first_level_menu_second" action="sold_products" />
@@ -13,6 +13,7 @@
         <menuitem id="bookify_third_level_menu" name="User">
             <menuitem id="bookify_third_level_menu_first" action="user_description"/>
             <menuitem id="bookify_third_level_menu_second" action="user_category"/>
+            <menuitem id = "bookify_third_level_menu_third" action = "customer_description"/>
         </menuitem>
         <menuitem id="bookify_fourth_level_menu" name="Authors">
             <menuitem id ="bookify_fourth_level_menu_first" action="author_description"/>

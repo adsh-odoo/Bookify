@@ -24,8 +24,12 @@ class bookifyStocks(models.Model):
             # else:
             #     record.rating =1
 
-
-            
+    def update_stock(self,book_id):
+        print(book_id)
+        print(self.book_description_id)
+        for record in self:
+            print("hello")
+            print(record.book_description_id)       
 
 
 

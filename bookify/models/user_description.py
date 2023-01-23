@@ -9,7 +9,7 @@ class userdescription(models.Model):
     name = fields.Char(required=True)
     id_user = fields.Char("user-id")
     email_id = fields.Char("Email-id")
-    mobile_no= fields.Char("MobileNo", required= True)
+    mobile_no= fields.Char("MobileNo")
     Residential_address= fields.Text("Address")
     category_id = fields.Many2one('user.category', string="User Type")
     user_id = fields.Many2one('sold.products', string ="User-info")
