@@ -13,6 +13,7 @@ class booksBills(models.Model):
     total_tax = fields.Float(compute =  "_total_tax")
     total_price = fields.Float(compute = "_total_price")
     date = fields.Date(default = fields.datetime.now())
+    created_by_id  = fields.Many2one('res.partner') # for invoicing 
 
 
     @api.depends("book_name_id.tax","quantity")
@@ -31,3 +32,6 @@ class booksBills(models.Model):
     def create(self,vals):
         vals['ref'] = self.env['ir.sequence'].next_by_code('bookify.bills')
         return super(booksBills,self).create(vals)
+
+    def create_invoice(self):
+        pass

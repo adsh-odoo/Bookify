@@ -1,0 +1,1 @@
+from . import bookify_delivery_task

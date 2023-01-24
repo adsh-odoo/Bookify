@@ -59,8 +59,12 @@
                         <group>
                             <field name="total_price"/>
                         </group>
+                        <group>
+                            <field name="created_by_id"/>
+                        </group>
 
                     </group>
+                    <button name = "create_invoice" type = "object" string = "Create invoice" class ="oe_highlight"/>
                 </sheet>
             </form>
 

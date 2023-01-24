@@ -3,7 +3,7 @@ from odoo import models, fields,api
 
 class customerDescription(models.Model):
     _name = "customer.description"
-    _inherits = {'user.description':'user_desc'}
+    _inherits = {'user.description':'user_desc_id'}
     _description = "models for storing the customers record"
 
     user_desc_id = fields.Many2one('user.description' ,string = "customer_description")
@@ -13,8 +13,7 @@ class customerDescription(models.Model):
 
     # @api.multi
     def sold_order(self):
-        print(self.book_name_id)
-        self.env['bookify.stocks'].update_stock(self.book_name_id)
+        print("AAAAAAAAAAAAAAAaa")
 
         # for record in self:
         #     print(record.book_name_id.stock_id)
