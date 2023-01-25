@@ -5,3 +5,4 @@ class bookGenresModel(models.Model):
     _description = "The category of the books"
 
     name = fields.Char(required=True)
+    color = fields.Integer()

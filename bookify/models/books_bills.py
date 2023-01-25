@@ -34,4 +34,6 @@ class booksBills(models.Model):
         return super(booksBills,self).create(vals)
 
     def create_invoice(self):
-        pass
+        self.book_name_id.stock = self.book_name_id.stock-1
+        x = self.book_name_id.stock
+        # breakpoint()

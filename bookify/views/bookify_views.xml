@@ -2,13 +2,10 @@
     <record id="bookify_top_picks" model="ir.actions.act_window">
         <field name="name">Available books</field>
         <field name="res_model">book.description</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
         <field name="context">{"search_default_top_rated":1}</field>
-        <!-- <field name="domain">[('author_id', '=', active_id)]</field> -->
-
     </record>
-
-    <!-- making the record for the estate button -->
+    <!-- making the record for the stat button -->
     <record id="bookify_top_picks_author_view" model="ir.actions.act_window">
         <field name="name">Top picks</field>
         <field name="res_model">book.description</field>
@@ -41,7 +38,7 @@
     <record id="author_description" model="ir.actions.act_window">
         <field name="name">Author</field>
         <field name="res_model">author.description</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
     <record id="sold_products" model="ir.actions.act_window">
         <field name="name">Sold Products</field>
@@ -169,7 +166,45 @@
             </search>
         </field>
     </record>
+   <!-- _____________________________Kanban view of book.description______________________ -->
+    <record id = "bookify_description_kanban_view" model= "ir.ui.view">
+        <field name ="name">bookify.description.kanban.view</field>
+        <field name = "model">book.description</field>
+        <field name ="arch" type = "xml">
+            <kanban default_group_by = "genres_id">
+                <templates>
+                    <t t-name = "kanban-box">
+                        <div class = "oe_kanban_global_click">
+                            <field name = "name"/>
+                            <div>
+                                <label for = "author_id">Author:</label>
+                                <field name ="author_id"/>
+                            </div>
+                            <div>
+                                <label for = "genres_id">Genres:</label>
+                                <field name ="genres_id"/>
+                            </div>  
+                            <div>
+                                <field name ="category_ids" options = "{'color_field' : 'color'}"/>
+                            </div> 
+                            <div>
+                                <label for = "pages">Pages:</label>
+                                <field name ="pages"/>
+                            </div>
+                            <div t-if = "record.rating.raw_value > 7">
+                                <label for = "rating">Rating:</label>
+                                <field name ="rating"/>
 
+                            </div>
+
+                        </div>
+                    </t>
+
+                </templates>
+            </kanban>
+
+        </field>
+    </record>
     <!-- ____________________________list view user_description_________________________________ -->
     <record id="user_description_list_view" model="ir.ui.view">
         <field name="name">treeview.user.description</field>
@@ -289,16 +324,16 @@
                             <field name="name" />
                         </group>
                         <group style="margin-top:30px">
-                            <field name="date_of_birth" />
+                            <field name="date_of_birth"/>
                         </group>
                         <group style="margin-top:30px">
                             <field name="age" />
                         </group>
                         <group style="margin-top:30px">
-                            <field name="country" />
+                            <field name="country"/>
                         </group>
                         <group style="margin-top:30px">
-                            <field name="genres_ids" widget="many2many_tags" />
+                            <field name="genres_ids" widget="many2many_tags" options = "{'color_field':'color'}" />
                         </group>
                         <group style="margin-top:30px">
                             <field name="awards" />
@@ -316,5 +351,32 @@
             </form>
         </field>
     </record>
-
+    <!-- ______________________________kanban_view_author_description__________________ -->
+    <record id = "Author_description_kanban_view" model = "ir.ui.view">
+        <field name = "name">author.description.kanban.view</field>
+        <field name = "model">author.description</field>
+        <field name = "arch" type = 'xml'>
+            <kanban default_group_by = "country">
+                <templates>
+                    <t t-name = "kanban-box">
+                        <div class = "oe_kanban_global_click">
+                            <field name = "name"/>
+                            <div>
+                                <label for = "genres_ids">Genres:</label>
+                                <field name = "genres_ids" options = "{'color_field':'color'}"/>
+                            </div>
+                            <div>
+                                <label for = "country">Country:</label>
+                                <field name = "country"/>
+                            </div>
+                            <div>
+                                <label for = "awards">Awards:</label>
+                                <field name = "awards"/>
+                            </div>
+                        </div>
+                    </t>    
+                </templates>
+            </kanban>
+        </field>
+    </record>
 </odoo>

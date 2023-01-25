@@ -9,7 +9,7 @@ class bookifyStocks(models.Model):
     book_description_id = fields.Many2one('book.description')
     author_name= fields.Char("Author" , related = "book_description_id.author_id.name")
     rating = fields.Integer(related ="book_description_id.rating" ,default =1)
-    available_stock = fields.Integer("Available in stocks",default = 100)
+    available_stock = fields.Integer("Available in stocks",related = "book_description_id.stock")
     expected_replenishment = fields.Integer(compute = "_expected_days")
     supplier_detail_ids = fields.One2many('user.description','stocks_id')
 
@@ -23,6 +23,9 @@ class bookifyStocks(models.Model):
             record.expected_replenishment = record.available_stock/record.rating
             # else:
             #     record.rating =1
+
+    def order_stock(self):
+        pass
 
          
 

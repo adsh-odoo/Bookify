@@ -44,6 +44,7 @@
                         <field name="expected_replenishment"/>    
                     </group>
                 </group>
+                <button name = "order_stock" string  = "order stocks" type = "object" class = "oe_highlight"></button>
                 <notebook>
                     <page string = "suppliers detail" >
                         <field name="supplier_detail_ids" >

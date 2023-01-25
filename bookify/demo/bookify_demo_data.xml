@@ -21,10 +21,12 @@
     <record model="user.description" id="user_description_demo_data_first">
         <field name="name">demo user1</field>
         <field name="email_id">demo@demo1.com</field>
+        <field name = "mobile_no">9090909090</field>
     </record>
     <record model="user.description" id="user_description_demo_data_second">
         <field name="name">demo user2</field>
         <field name="email_id">demo@demo2.com</field>
+        <field name = "mobile_no">9090909090</field>
     </record>
 
     <record model="book.description" id="bookify_demo_data_first">

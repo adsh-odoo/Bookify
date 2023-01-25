@@ -27,7 +27,7 @@ class bookDescriptionModel(models.Model):
     state = fields.Selection(string = "Availability",
         selection = [('new','New'),('queued','Queued'),('sold','Sold')]
     )
-    # stock_id = fields.Many2one('bookify.stocks')
+    stock = fields.Integer(default = 50)
 
 
     @api.depends("price")
