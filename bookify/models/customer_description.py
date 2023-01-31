@@ -43,7 +43,7 @@ class customerDescription(models.Model):
             }
             
         )
-        breakpoint()
+        # breakpoint()
 
         # for record in self:
         #     print(record.book_name_id.stock_id)

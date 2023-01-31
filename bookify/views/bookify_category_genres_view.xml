@@ -1,0 +1,34 @@
+<odoo>
+    <record id="genres_description_form" model="ir.ui.view">
+        <field name="name">genres.description.form.view</field>
+        <field name="model">book.genres</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name = "name"/>
+                    <notebook>
+                        <page string = "Available books">
+                            <field name = "book_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="book_category_description_form" model="ir.ui.view">
+        <field name="name">book.category.description.form.view</field>
+        <field name="model">book.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name = "name"/>
+                    <notebook>
+                        <page string = "Available books">
+                            <field name = "book_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,11 @@
+<odoo>
+    <record id = "bookify_bills_report" model = "ir.actions.report">
+        <field name = "name">Your bookify bill</field>
+        <field name = "model">book.bill</field>
+        <field name = "report_type">qweb-pdf</field>
+        <field name = "report_name">bookify.bills_report</field>
+        <field name = "report_file">bookify.your_bill</field>
+        <field name = "binding_model_id" ref = "model_book_bill"></field>
+        <field name = "binding_type">report</field>
+    </record>
+</odoo>

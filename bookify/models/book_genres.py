@@ -6,3 +6,4 @@ class bookGenresModel(models.Model):
 
     name = fields.Char(required=True)
     color = fields.Integer()
+    book_ids = fields.One2many("book.description",'genres_id')

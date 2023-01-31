@@ -1,0 +1,5 @@
+<odoo>
+    <record id = "bookify_customer_group" model = "ir.groups">
+
+    </record>
+</odoo>
